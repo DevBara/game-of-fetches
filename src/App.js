@@ -1,37 +1,49 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './App.css';
 import axios from 'axios'
+import Character from './components/Characters.js'
 
-export default class App extends Component {
-  constructor(props) {
+class App extends React.Component{
+  constructor(props){
     super(props);
 
-    this.state = {
-      isLoaded: false,
-      data: []
+    this.state ={
+      characterData: null,
+    };
+  }
+
+  async getHouses(){
+    try {
+      const make = await axios.get('https://www.anapioficeandfire.com/api/houses');
+      this.setState({})
+    } catch (e){
+      console.error(e)
+    }
+  }
+  async componentDidMount(){
+    const res= await axios.get ('https://anapioficeandfire.com/api/characters/583');
+    this.setState({characterData: res.data})
+  }
+
+  async getTyrell(){
+    try{
+      const tyrell = await axios.get('http://anapioficeandfire.com/api/characters/16');
+      this.setState({})
+    } catch (e){
+      console.error(e)
     }
   }
 
-  componentDidMount() {
-    
-    fetch("http://anapioficeandfire.com/api/characters")
-      .then(response => response.json()) // first response => resolved
-      .then(
-        result => {
-          console.log(result.results)
-
-          this.setState({
-            isLoaded: true,
-            items:result.results
-          })
-
-
-  render() {
-    return (
-      <div>
-        <h1> Game of Thrones API </h1>
-        
-      </div>
-    )
-  }
+render(){
+  return(
+    <div className="app">
+      <header className="App-header">
+        <Character info={this.state.characterData} />
+      </header>
+    </div>
+  )
 }
+}
+
+
+export default App
