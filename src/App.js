@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css';
 import axios from 'axios'
 import Character from './components/Characters.js'
+import Houses from './components/Houses.js'
 
 class App extends React.Component{
   constructor(props){
@@ -39,6 +40,7 @@ render(){
     <div className="app">
       <header className="App-header">
         <Character info={this.state.characterData} />
+        <Houses info={this.state.housesData} />
       </header>
     </div>
   )
