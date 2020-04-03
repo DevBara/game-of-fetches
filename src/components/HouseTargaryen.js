@@ -10,8 +10,7 @@ function Houses(props){
     }
     return(
       <div>
-        <h1>What region is House Targaryen in?{checkNull().houses}</h1>
-
+        <h1>What region is House Targaryen in?{house.name}</h1>
       </div>
     )
   }
