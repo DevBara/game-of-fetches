@@ -1,44 +1,31 @@
-import React, { Component } from 'react'
+import React from 'react'
 import axios from 'axios'
+import { render } from 'react-dom';
 
-export default class Margaery extends Component {
-    constructor(props){
-        super(props);
-
-        this.state={
-            isLoaded:false,
-            data: []
-        }
+export default class Margaery extends React.Component {
+    state ={
+        characters: []
     }
 
-    //Now that state has been set. Lets work with the API
-    //use axios get
     componentDidMount(){
         axios.get('http://anapioficeandfire.com/api/characters/16')
-
-        //create promises
-        .then(response => {
-            const mTyrell = response.data;
-            console.log("data",mTyrell)
-
-            this.setState({data: mTyrell})
-        })
-        //catch is used if data is not returned from promise.
-        //if nothing is returned, we will see error
-        .catch(error => {
-            console.log('Warning, error', error)
-        })
-
-
+            .then(res => {
+                const characters = res.data;
+                this.setState({characters});
+            })
     }
-  
 
     render() {
-        return (
+        return ( 
             <div>
-                <h1> When is Margaery Tyrell Birthday?</h1>
-                <p>{this.state.data.born}</p>
+                <h1>Where was Margaret Tyrell born?{checkNull().born}</h1>
             </div>
+                
         )
     }
+
 }
+
+    
+
+    

@@ -1,80 +1,37 @@
-import React from 'react'	
-import './App.css';
-import axios from 'axios'
-import JohnSnow from './components/JohnSnow'
+import React, { Component } from 'react'
+import Axios from 'axios'
 
-
-
-
-class App extends React.Component {
-  constructor(props) {
+export default class App extends Component {
+  constructor(props){
     super(props);
-
-    this.state = {
-      characterData: null,
-      houses: null,
     
-    };
+    this.state= {
+      characterData: '',
+    }
   }
 
-  johnSnow() {
-    axios.get('https://anapioficeandfire.com/api/characters/583')
-      .then( res => this.setState({ characterData: res.data })).catch(e => console.error(e))
+
+
+  componentDidMount(){
+    Axios.get('https://anapioficeandfire.com/api/characters/16')
+    .then(response => {
+      this.setState({characterData: response.data.born})
+    })
+    .catch(error => {
+      console.log(error);
+    })
+
 
   }
-
-  componentDidMount() {
-    this.johnSnow();
-   
-  }
-
   render() {
+
+    const {characterData} = this.state;
     return (
-      <div className="App">
-        <header className="App-header">
-    
-          <JohnSnow info={ this.state.characterData } />
-        </header>
+      <div>
+        <h1>Where was Margaery Tyrell born?</h1>
+        <p>{characterData}</p>
+        
       </div>
-    );
+    )
   }
 }
-
-export default App;
-
-
-
-
-
-
-// class App extends React.Component{
-//   constructor(props){
-//     super(props);
-
-//     this.state={
-//       characters:null,
-//     };
-//   }
-
-//   componentDidMount(){
-//     const url ='https://anapioficeandfire.com/api/characters/583'
-//     axios.get(url). then(res => res.data)
-//     .then((data)=>{
-//       this.setState({characters: data})
-//     })
-//   }
-
-//   render(){
-//     return(
-//       <div className="app">
-//         <header className="App-header">
-//         <JohnSnow />
-    
-//         </header>
-//       </div>
-//     );
-//   } 
-// }
-
-
-// export default App
