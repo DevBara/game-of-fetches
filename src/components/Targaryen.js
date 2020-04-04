@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-export default class Tyrell extends Component {
+export default class Targaryen extends Component {
     constructor(props){
         super(props);
 
         this.state ={
-            Tyrell: "",
+            charactersData:[],
+        
         }
     }
 
-    getTyrell(){
-        axios.get('https://anapioficeandfire.com/api/characters/16')
+    getTargaryen(){
+        axios.get('https://anapioficeandfire.com/api/characters/378')
         .then(response => {
-          this.setState({Tyrell: response.data.born})
+          this.setState({Targaryen: response.data.region})
         })
         .catch(error => {
           console.log(error);
@@ -21,18 +22,18 @@ export default class Tyrell extends Component {
     }
 
     componentDidMount(){
-        this.getTyrell();
+        this.getTargaryen();
     }
     
     
     
     render() {
-        const {Tyrell} = this.state;
+        const {Targaryen} = this.state;
 
         return (
             <div>
-                <h1>Where was Margaery Tyrell born?</h1>
-                <p>{Tyrell}</p>
+                <h1>What region is House Targaryen in?</h1>
+                <p>{Targaryen}</p>
             </div>
         )
     }
