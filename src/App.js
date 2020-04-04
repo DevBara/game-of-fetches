@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import axios from 'axios'
 import Tyrell from './components/Tyrell'
 import Targaryen from './components/Targaryen'
+import Lannister from './components/Lannister'
 
 export default class App extends Component {
   constructor(props){
@@ -20,6 +21,7 @@ export default class App extends Component {
       <div>
         <Tyrell />
         <Targaryen />
+        <Lannister />
         
       </div>
     )
