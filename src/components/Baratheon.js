@@ -14,7 +14,7 @@ export default class Baratheon extends Component {
     }
 
     getBaratheon(){
-        axios.get('http://www.anapioficeandfire.com/api/houses/17')
+        axios.get('https://www.anapioficeandfire.com/api/houses/17')
         .then(response => {
           this.setState({Baratheon: response.data.seats})
         })

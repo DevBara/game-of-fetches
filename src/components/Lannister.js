@@ -27,7 +27,7 @@ export default class Lannister extends Component {
     
     
     render() {
-        const {Lannister} = this.state;
+        // const {Lannister} = this.state;
 
         return (
             <div>

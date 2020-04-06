@@ -6,16 +6,16 @@ import Lannister from './components/Lannister'
 import Baratheon from './components/Baratheon'
 
 export default class App extends Component {
-  constructor(props){
-    super(props);
+  // constructor(props){
+  //   super(props);
     
-    this.state= {
-      Tyrell:"",
-      Targaryen: "",
-      Lannister: '',
-      Baratheon: '',
-    }
-  }
+  //   this.state= {
+  //     Tyrell:"",
+  //     Targaryen: "",
+  //     Lannister: '',
+  //     Baratheon: '',
+  //   }
+  // }
 
 
   render() {

@@ -6,13 +6,13 @@ export default class Targaryen extends Component {
         super(props);
 
         this.state ={
-            Targaryen:[],
+            Targaryen:"",
         
         }
     }
 
     getTargaryen(){
-        axios.get('https://anapioficeandfire.com/api/characters/378')
+        axios.get('https://www.anapioficeandfire.com/api/houses/378')
         .then(response => {
           this.setState({Targaryen: response.data.region})
         })
@@ -28,10 +28,12 @@ export default class Targaryen extends Component {
     
     render() {
         const {Targaryen} = this.state;
+       
 
         return (
             <div>
                 <h1>What region is House Targaryen in?</h1>
+                
                 <p>{Targaryen}</p>
             </div>
         )
