@@ -14,7 +14,7 @@ export default class RobertAlias extends Component {
     }
 
     getAlias(){
-        axios.get('https://www.anapioficeandfire.com/api/houses/17')
+        axios.get('https://www.anapioficeandfire.com/api/characters/901')
         .then(response => {
           this.setState({Robert: response.data.aliases[1]})
         })
