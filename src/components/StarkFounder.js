@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-
+//need to chain this url https://www.anapioficeandfire.com/api/characters/209"
 
 export default class StarkFounder extends Component {
     constructor(props){
@@ -11,13 +11,15 @@ export default class StarkFounder extends Component {
             Founder:[],
         
         }
-    }
 
+    }
+   
     getFounder(){
         axios.get('https://www.anapioficeandfire.com/api/houses/362')
         .then(response => {
-          this.setState({Founder: response.data.founders})
-        })
+          this.setState({Founder: response.data.founder})
+        }) 
+
         .catch(error => {
           console.log(error);
         })
