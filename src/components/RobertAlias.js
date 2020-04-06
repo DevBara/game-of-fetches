@@ -1,20 +1,22 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-export default class Lannister extends Component {
+
+
+export default class RobertAlias extends Component {
     constructor(props){
         super(props);
 
         this.state ={
-            Lannister:[],
+            Robert:[],
         
         }
     }
 
-    getLannister(){
-        axios.get('https://www.anapioficeandfire.com/api/houses/229')
+    getAlias(){
+        axios.get('https://www.anapioficeandfire.com/api/houses/17')
         .then(response => {
-          this.setState({Lannister: response.data.coatOfArms})
+          this.setState({Robert: response.data.aliases[1]})
         })
         .catch(error => {
           console.log(error);
@@ -22,17 +24,18 @@ export default class Lannister extends Component {
     }
 
     componentDidMount(){
-        this.getLannister();
+        this.getAlias();
     }
     
     
     render() {
-        const {Lannister} = this.state;
+        const {Robert} = this.state;
 
         return (
             <div>
-                <h1>What's the coat of arms of House Lannister?</h1>
-                <p>{Lannister}</p>
+                <h1>What is Robert Baratheon's second alias?</h1>
+                <p>{Robert}</p>
+                
             </div>
         )
     }

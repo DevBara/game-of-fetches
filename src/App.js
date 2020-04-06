@@ -4,19 +4,9 @@ import Tyrell from './components/Tyrell'
 import Targaryen from './components/Targaryen'
 import Lannister from './components/Lannister'
 import Baratheon from './components/Baratheon'
+import RobertAlias from './components/RobertAlias'
 
 export default class App extends Component {
-  // constructor(props){
-  //   super(props);
-    
-  //   this.state= {
-  //     Tyrell:"",
-  //     Targaryen: "",
-  //     Lannister: '',
-  //     Baratheon: '',
-  //   }
-  // }
-
 
   render() {
     return (
@@ -25,6 +15,7 @@ export default class App extends Component {
         <Targaryen />
         <Lannister />
         <Baratheon />
+        <RobertAlias />
         
       </div>
     )

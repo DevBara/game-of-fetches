@@ -35,8 +35,6 @@ export default class Baratheon extends Component {
             <div>
                 <h1>What is the second seat of House Baratheon?</h1>
                 <p>{Baratheon}</p>
-
-                <h1>What is Robert Baratheon's second alias?</h1>
                 
             </div>
         )
